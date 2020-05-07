@@ -37,5 +37,6 @@ dependencies {
 
     implementation 'org.osmdroid:osmdroid-shape:6.1.4'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
 
 }

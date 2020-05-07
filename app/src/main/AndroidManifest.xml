@@ -11,8 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".OsmMap"></activity>
         <activity
-            android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

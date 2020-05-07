@@ -14,19 +14,23 @@ class CoordinatesAdapter(private val context: Context,
         parent: ViewGroup,
         viewType: Int
     ): CoordinatesAdapter.CoordinatesViewHolder {
-        TODO("Not yet implemented")
+
+        val inflater = LayoutInflater.from(parent.context)
+        return CoordinatesViewHolder(inflater, parent)
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount() = LatitudesList.size
 
     override fun onBindViewHolder(holder: CoordinatesAdapter.CoordinatesViewHolder, position: Int) {
-        TODO("Not yet implemented")
+
+        val txtLat : String = LatitudesList[position].toString()
+        val txtLong : String = LongitudesList[position].toString()
+
+        holder.AssignValues(txtLat, txtLong, context)
     }
 
     class CoordinatesViewHolder(inflater: LayoutInflater, parent: ViewGroup):
-            RecyclerView.ViewHolder(inflater.inflate(R.layout.activity_main, parent, false)){
+            RecyclerView.ViewHolder(inflater.inflate(R.layout.coordinates, parent, false)){
 
         private var tvLat : TextView? = null
         private var tvLong : TextView? = null

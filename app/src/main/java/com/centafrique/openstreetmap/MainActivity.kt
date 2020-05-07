@@ -44,9 +44,9 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,
             false)
 
-//        coordinatesAdapter = CoordinatesAdapter(this, LatitudesList, LongitudesList)
-//
-//        recyclerView.adapter = coordinatesAdapter
+        coordinatesAdapter = CoordinatesAdapter(this, LatitudesList, LongitudesList)
+
+        recyclerView.adapter = coordinatesAdapter
 
 
     }

@@ -36,12 +36,6 @@ class OsmMap : AppCompatActivity() {
         Configuration.getInstance()
             .load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx))
 
-//        val osmConf = Configuration.getInstance()
-//        val basePath = File(cacheDir.absolutePath, "osmdroid")
-//        osmConf.osmdroidBasePath = basePath
-//        val tileCache = File(osmConf.osmdroidBasePath.absolutePath, "tile")
-//        osmConf.osmdroidTileCache = tileCache
-
         val txtLatitude: Double = intent.getDoubleExtra("Lat", 0.444393)
         val txtLongitude: Double = intent.getDoubleExtra("Long", 35.749397)
 
@@ -55,6 +49,8 @@ class OsmMap : AppCompatActivity() {
         val GeoPoint = GeoPoint(txtLatitude, txtLongitude)
         val mapController = map.controller
         mapController.setCenter(GeoPoint)
+        mapController.animateTo(GeoPoint, 18.5, 10000L)
+
 
         val overlayItem = OverlayItem("Lat", "Long", GeoPoint)
         val markerDrawable = this.resources.getDrawable(R.drawable.blue_pin)

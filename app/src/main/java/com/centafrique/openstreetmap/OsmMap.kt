@@ -1,6 +1,5 @@
 package com.centafrique.openstreetmap
 
-import android.Manifest
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
@@ -18,6 +17,9 @@ import org.osmdroid.config.Configuration
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
+import org.osmdroid.views.overlay.ItemizedIconOverlay
+import org.osmdroid.views.overlay.ItemizedOverlay
+import org.osmdroid.views.overlay.OverlayItem
 
 
 class OsmMap : AppCompatActivity() {
@@ -53,6 +55,17 @@ class OsmMap : AppCompatActivity() {
         val GeoPoint = GeoPoint(txtLatitude, txtLongitude)
         val mapController = map.controller
         mapController.setCenter(GeoPoint)
+
+        val overlayItem = OverlayItem("Lat", "Long", GeoPoint)
+        val markerDrawable = this.resources.getDrawable(R.drawable.blue_pin)
+        overlayItem.setMarker(markerDrawable)
+        val overlayItemArrayList =
+            java.util.ArrayList<OverlayItem>()
+        overlayItemArrayList.add(overlayItem)
+
+        val locationOverlay: ItemizedOverlay<OverlayItem> =
+            ItemizedIconOverlay(this, overlayItemArrayList, null)
+        map.overlays.add(locationOverlay)
 
         if (!checkAndRequestPermissions()){
 

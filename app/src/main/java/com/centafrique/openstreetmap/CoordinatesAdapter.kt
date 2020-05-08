@@ -1,6 +1,7 @@
 package com.centafrique.openstreetmap
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
@@ -49,6 +50,11 @@ class CoordinatesAdapter(private val context: Context,
             tvLong?.text = txtLong
 
             itemView.setOnClickListener {
+
+                val intent : Intent = Intent(context, OsmMap::class.java)
+                intent.putExtra("Lat", txtLat.toDouble())
+                intent.putExtra("Long", txtLong.toDouble())
+                context.startActivity(intent)
 
 
             }
